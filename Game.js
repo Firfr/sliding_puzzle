@@ -62,7 +62,7 @@ BasicGame.Game.prototype = {
         this.musicButton.inputEnabled = true;
         this.musicButton.events.onInputDown.add(this.toggleMusic, this);
 
-        this.wintext = this.add.text(this.world.centerX+10, 15, "YOU\n WIN!", { font: "60px Arial", fill: "#ffffff", align: "center" });
+        this.wintext = this.add.text(this.world.centerX+10, 15, "你\n赢了", { font: "60px Arial", fill: "#ffffff", align: "center" });
         this.wintext.visible = false;
 
         this.urlstring = window.location.href;
@@ -168,7 +168,7 @@ BasicGame.Game.prototype = {
     },
     checkWinandClicks : function(){
         this.totalclicks++;
-        this.clicktext.setText(this.totalclicks+' clicks');
+        this.clicktext.setText(this.totalclicks+' 步');
         var flag = true;
         for(var i=0;i<4;i++){
             for(var j=0;j<4;j++){
@@ -379,8 +379,8 @@ BasicGame.Game.prototype = {
     resetScores : function(){
         this.totaltime = 0;
         this.totalclicks = 0;
-        this.clicktext.setText('0 clicks');
-        this.timertext.setText('0 seconds');
+        this.clicktext.setText('0 步');
+        this.timertext.setText('0 秒');
     },
 
     convertToUrl : function(){
@@ -393,12 +393,12 @@ BasicGame.Game.prototype = {
                 temp2.push(String.fromCharCode(64+temp[i]));
             }
             temp2 = temp2.join("");
-            prompt("COPY the following Url share current puzzle :- ",temp2);
+            prompt("通过以下链接可将当前布局分享给朋友：",temp2);
         }
     },
     updateTime : function(){
         this.totaltime++;
-        this.timertext.setText(this.totaltime + ' s');
+        this.timertext.setText(this.totaltime + ' 秒');
     },
 
     resetTexts : function(a){
